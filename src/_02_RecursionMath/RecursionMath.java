@@ -20,25 +20,29 @@ public class RecursionMath {
     public static int recursiveDivision(int number, int numberToDivideBy) {
     	
     	if(numberToDivideBy > number) {
-    		return number;
+    		return 0;
     	}
     
-    	if(numberToDivideBy <= 0) {
-    		System.out.println("Division by zero or negative number, returns -1");
-    		return -1;
+    	if(numberToDivideBy == 0) {
+    		return 0;
     	}
     	
-    	if(numberToDivideBy == 1) {
-    		return number;
-    	}
-    	
-        return number + recursiveDivision(number - numberToDivideBy, numberToDivideBy);
-        
+        return 1 + recursiveDivision(number - numberToDivideBy, numberToDivideBy);
+         
     }
 
     // Try this one on your own!
     public static int recursivePower(int number, int power) {
         
-        return 0;
+    	if(power == 1) {
+    		return number;
+    	}
+    	
+    	if(power == 0) {
+    		return 1;
+    	}
+    	
+    	
+        return number * recursivePower(number, power - 1);
     }
 }
